@@ -1,0 +1,15 @@
+version: 0.0
+os: linux
+files:
+  - source: /2079_garage/
+    destination: /var/www/html
+hooks:
+  AfterInstall:
+    - location: file/script.sh
+      timeout: 300
+      runas: root
+
+  ApplicationStart: 
+    - location: file/start-nginx.sh
+      timeout: 300
+      runas: root

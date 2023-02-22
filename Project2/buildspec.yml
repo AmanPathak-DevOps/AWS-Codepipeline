@@ -1,0 +1,21 @@
+version: 0.2
+
+phases: 
+  install:
+    commands:
+      - echo Installing nginx
+      - sudo apt-get update
+      - sudo apt install nginx -y
+
+  build:
+    commands:
+      - echo Build started at `date`
+      - cp -r 2079_garage /var/www/html
+
+  post_build:
+    commands:
+      - echo Configuring Nginx
+
+artifacts:
+  files:
+    - '**/*'
